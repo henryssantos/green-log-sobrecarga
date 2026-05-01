@@ -1,6 +1,6 @@
 package org.example;
 
-public class Caminhao extends Veiculo{
+public class Caminhao extends Veiculo {
     private int eixos;
 
     public Caminhao(String placa, double tanqueCapacidade, double consumoMedio, int eixos) {
@@ -16,9 +16,6 @@ public class Caminhao extends Veiculo{
         this.eixos = eixos;
     }
 
-    public void CalcularAutonomia(){
-        double autonomia = tanqueCapacidade * consumoMedio;
-
-    }
 
 }
+
