@@ -13,12 +13,12 @@ public class Veiculo {
 
     public Veiculo(){}
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
     public String getPlaca() {
         return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public double getTanqueCapacidade() {
@@ -26,10 +26,10 @@ public class Veiculo {
     }
 
     public void setTanqueCapacidade(double tanqueCapacidade) {
-        if(tanqueCapacidade > 0){
+        if (tanqueCapacidade > 0) {
             this.tanqueCapacidade = tanqueCapacidade;
         } else {
-            System.out.println("Valor invalido para tanque!");
+            System.out.println("Valor inválido para tanque!");
         }
     }
 
@@ -38,12 +38,49 @@ public class Veiculo {
     }
 
     public void setConsumoMedio(double consumoMedio) {
-        if(consumoMedio > 0){
+        if (consumoMedio > 0) {
             this.consumoMedio = consumoMedio;
+        } else {
+            System.out.println("Valor inválido para consumo!");
+        }
+    }
+
+    public double calcularAutonomia(){
+        return getTanqueCapacidade() * getConsumoMedio();
+    }
+
+    public double calcularAutonomia(double cargaTon){
+
+        double consumoAjustado = getConsumoMedio() - (cargaTon * 0.5);
+
+        return getTanqueCapacidade() * consumoAjustado;
+    }
+
+    public void verificarAutonomia(double autonomia){
+        if(autonomia < 100){
+            System.out.println("Alerta: Abastecimento necessário");
         }else{
-            System.out.println("Valor invalido para consumo!");
+            System.out.println("Autonomia Ok!");
         }
     }
 
 
+    public void tipoManutencao(int opcao){
+
+        switch(opcao){
+
+            case 1:
+                System.out.println("Manutenção: Oléo");
+                break;
+            case 2:
+                System.out.println("Manutenção: Pneu");
+                break;
+            case 3:
+                System.out.println("Manutenção: Revisão");
+                break;
+            default:
+                System.out.println("Opção invalida!");
+        }
+    }
 }
+
